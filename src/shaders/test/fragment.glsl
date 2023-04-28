@@ -1,3 +1,5 @@
+#define PI 3.1415926535897932384626433832795
+
 varying vec2 vUv;
 
 
@@ -171,18 +173,26 @@ void main()
 // float strength = lightX * lightY;
 
 
-//Pattern 32
+//Pattern 32---Ox
 
-vec2 rotatedUv = rotate(vUv, 0.8, vec2(0.5));
+// float pi = 3.1415926535897932384626433832795;
 
-vec2 lightUvX = vec2(rotatedUv.x * 0.1 + 0.45, rotatedUv.y * 0.5 + 0.25);
-float lightX = 0.015 / distance(lightUvX, vec2(0.5));
 
-vec2 lightUvY = vec2(rotatedUv.y * 0.1 + 0.45,rotatedUv.x * 0.5 + 0.25);
-float lightY = 0.015 / distance(lightUvY, vec2(0.5));
 
-float strength = lightX * lightY;
+// vec2 rotatedUv = rotate(vUv, PI * 0.25, vec2(0.5));
 
+// vec2 lightUvX = vec2(rotatedUv.x * 0.1 + 0.45, rotatedUv.y * 0.5 + 0.25);
+// float lightX = 0.015 / distance(lightUvX, vec2(0.5));
+
+// vec2 lightUvY = vec2(rotatedUv.y * 0.1 + 0.45,rotatedUv.x * 0.5 + 0.25);
+// float lightY = 0.015 / distance(lightUvY, vec2(0.5));
+
+// float strength = lightX * lightY;
+
+
+
+//Pattern 33
+float strength = step(0.25, distance(vUv, vec2(0.5)));
 
  gl_FragColor = vec4(strength, strength, strength, 1.0);
 }
